@@ -1,6 +1,6 @@
 {
-  "name": "encode-url",
-  "version": "1.0.1",
+  "name": "easy-code-url",
+  "version": "1.0.2",
   "description": "encodeURIComponent decodeURIComponent",
   "main": "@/lib/index.js",
   "scripts": {

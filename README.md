@@ -24,6 +24,10 @@ import ECU from "easy-code-url"
 
 ```
 import easyCodeURL from "easy-code-url";
+//全局设置
+easyCodeURL.setConfig({break:"?",jpin:"&",encode:true});
+//获取全局设置
+easyCodeURL.getConfig();
 //拼装Data
 let data={
     name:"MOD",
@@ -35,8 +39,8 @@ var strData = easyCodeURL.encodeData(data)
 console.log(strData);
 console.log(easyCodeURL.decodeData(strData))
 var URL = easyCodeURL.encodeURL("www.baidu.com",data,{encode:true})
-var URL = easyCodeURL.encodeURL("www.baidu.com",data,{encode:false})
-console.log(URL);
+var URL2 = easyCodeURL.encodeURL("www.baidu.com",data,{encode:false})
+console.log(URL,URL2);
 console.log(easyCodeURL.decodeURL(URL,{encode:true}))
 var sss = easyCodeURL.decodeURL(URL,{encode:true});
 console.log(sss);
@@ -46,23 +50,31 @@ console.log(sss);
 ```
 
 ### API ###
-#### encodeData(data,join)<br> #### 
-
-```
-easyCodeURL.encodeData({name:"foo",age:"22"},"&");
-```
-
-#### decodeData(strData,join)<br> #### 
-
-#### encodeURL(urlstr,data,config)<br> ####
-
-```
+#### setConfig(config)<br> ####
+设置全局配置参数
 config:{
-    encode:false,//Boolean,默认：false，是否启用 URI 组件进行编码 encodeURIComponent
-    join:"&",//默认为"&".可自定义拼接符号，
-    break:"?",//分割符，可自定义
+    break:String,// 地址与参数分割符号，默认为"?";
+    join:String,// 参数拼接符 默认"&"
+    encode:Boolean,//是否将拼接后的地址进行 encodeURIComponent 编码 ，默认true
 }
-```
-#### decodeURL(appName,version)<br> #### 
+#### getConfig()<br> ####
+获取全局配置参数 return config
 
-config 配置同上
+#### encodeURL(baseURL,obj,config)<br> #### 
+将地址拼接参数
+baseURL:String,//需要拼接参数的地址
+obj:JSON Object,//参数JSON格式
+config:Object,//同全局配置属性，可每次调用该方法时，灵活设置，如空则默认全局配置。
+
+```
+easyCodeURL.encodeURL('www.baiduc.com',{name:"foo",age:"22"},{break:"?",join:"!",encode:false});
+```
+
+#### decodeURL(locationURL,config)<br> #### 
+可将携参地址的参数解析成对象
+locationURL:String,//携参地址
+config:Object,//同全局配置属性，可每次调用该方法时，灵活设置，如空则默认全局配置方式进行解析。
+
+```
+easyCodeURL.decodeURL('www.baiduc.com',{break:"?",join:"!",encode:false});
+```
