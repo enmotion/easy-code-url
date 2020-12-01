@@ -6,7 +6,8 @@ let data={
     gender:"male",
     hobby:["videogame","tree",{new:"keep"}],
 }
-var strData = easyCodeURL.encodeData(data)
+var strData = easyCodeURL.encodeData("")
+
 console.log(strData);
 console.log(easyCodeURL.decodeData(strData))
 var URL = easyCodeURL.encodeURL("www.baidu.com",data,{encode:true})

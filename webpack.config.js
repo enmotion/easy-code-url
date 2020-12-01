@@ -18,15 +18,15 @@ module.exports = {
             protectWebpackAssets: true,
         }),  
     ],
-    module: {
-        rules: [
-            {   //.js文件或者.jsx文件处理
-                test:/\.(js|jsx)/, 
-                loader:"babel-loader",
-                exclude:path.join(__dirname,"../node_modules")   //排除  node_modules中的内容
-            },
-        ]
-    },
+    // module: {
+    //     rules: [
+    //         {   //.js文件或者.jsx文件处理
+    //             test:/\.(js|jsx)/, 
+    //             loader:"babel-loader",
+    //             exclude:path.join(__dirname,"../node_modules")   //排除  node_modules中的内容
+    //         },
+    //     ]
+    // },
     optimization: {
         minimize: true,
         minimizer: [ new TerserPlugin({
