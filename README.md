@@ -60,10 +60,10 @@ config:{
 #### getConfig()<br> ####
 获取全局配置参数 return config
 
-#### encodeURL(baseURL,obj,config)<br> #### 
+#### encodeURL(baseURL,data,config)<br> #### 
 将地址拼接参数
 baseURL:String,//需要拼接参数的地址
-obj:JSON Object,//参数JSON格式
+data:JSON Object,//参数JSON格式
 config:Object,//同全局配置属性，可每次调用该方法时，灵活设置，如空则默认全局配置。
 
 ```
