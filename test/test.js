@@ -6,7 +6,7 @@ let data={
     gender:"male",
     hobby:["videogame","tree",{new:"keep"}],
 }
-var strData = easyCodeURL.encodeData("")
+var strData = easyCodeURL.encodeData(data)
 
 console.log(strData);
 console.log(easyCodeURL.decodeData(strData))
